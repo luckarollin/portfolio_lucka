@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio de Lucka ROLLIN — BTS SIO — option SISR" />
+  <title>Lucka ROLLIN — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-i">
+    <a href="index.html" class="logo">
+      <span class="logo-n">Lucka ROLLIN</span>
+      <span class="logo-s">BTS SIO — option SISR</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="hnav">
+      <a href="index.html" class="on">Accueil</a>
+      <a href="vues/competences.html">Compétences</a>
+      <a href="vues/experiences.html">Expériences</a>
+      <a href="vues/projets.html">Projets</a>
+      <a href="vues/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div id="app">
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-tag" id="salutation"></p>
+  <h1 class="hero-name">Je suis <em>Lucka ROLLIN</em></h1>
+  <p class="hero-form">BTS SIO — option SISR · Lycée Paul Louis Courrier, Tours</p>
+  <p class="hero-desc">Spécialisé dans l'administration systèmes, les réseaux et la gestion de parc. Rigoureux et motivé, j'aime relever des défis techniques et trouver des solutions efficaces.</p>
+  <div class="hero-btns">
+    <a class="btn" href="vues/contact.html">Me contacter</a>
+    <a class="btn g" href="CV_vierge.pdf" download>Télécharger le CV</a>
+  </div>
+  <ul class="pills">
+    <li>Autonomie</li><li>Curiosité</li><li>Rigueur</li><li>Permis B</li>
+  </ul>
+</div>
+
+<!-- 4 CARTES CLIQUABLES -->
+<div class="home-grid">
+
+  <a class="home-card" href="vues/competences.html">
+    <div class="home-card-ico">✅</div>
+    <h3>Compétences</h3>
+    <p>Windows Server, VirtualBox, GLPI, Cisco, Git, C#…</p>
+    <div class="tags">
+      <span class="tag">8 compétences</span>
+      <span class="tag">SISR</span>
+    </div>
+  </a>
+
+  <a class="home-card" href="vues/experiences.html">
+    <div class="home-card-ico">💼</div>
+    <h3>Expériences</h3>
+    <p>Missions professionnelles, bénévolat et formations.</p>
+    <div class="tags">
+      <span class="tag">3 expériences</span>
+      <span class="tag">3 formations</span>
+    </div>
+  </a>
+
+  <a class="home-card" href="vues/projets.html">
+    <div class="home-card-ico">📁</div>
+    <h3>Projets</h3>
+    <p>Compétences techniques mises en pratique</p>
+    <div class="tags">
+      <span class="tag">3 projets publics</span>
+    </div>
+  </a>
+
+  <a class="home-card" href="vues/contact.html">
+    <div class="home-card-ico">✉️</div>
+    <h3>Contact</h3>
+    <p>Disponible pour un stage — réponse rapide garantie.</p>
+    <div class="tags">
+      <span class="tag">lucka.rollin@gmail.com</span>
+    </div>
+  </a>
+
+</div>
+
+</div><!-- #app -->
+
+<footer class="ft">
+  <p>© <span id="year"></span> Lucka ROLLIN — BTS SIO — option SISR &nbsp;·&nbsp; <a href="mailto:lucka.rollin@gmail.com">lucka.rollin@gmail.com</a></p>
+</footer>
+
+<script>
+  // Salutation dynamique
+  const h = new Date().getHours();
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  let sal;
+  if (h >= 6 && h < 12)      sal = 'Bonjour ☀️';
+  else if (h >= 12 && h < 18) sal = 'Bon après-midi 🌤️';
+  else if (h >= 18 && h < 22) sal = 'Bonsoir 🌙';
+  else                         sal = 'Bonne nuit ⭐';
+  document.getElementById('salutation').textContent = sal + ' — il est ' + hh + 'h' + mm;
+
+  // Année footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  document.querySelectorAll('.hnav a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.hnav').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
